@@ -10,7 +10,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>AdminLTE 3 | Starter</title>
+  <title>LaVue</title>
 
     <link rel="stylesheet" href="/css/app.css">
     <!-- CSRF Token -->
@@ -50,7 +50,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <a href="index3.html" class="brand-link">
       <img src="./img/settings.png" alt="ControlAdmin Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">ControlAdmin 3</span>
+      <span class="brand-text font-weight-light">LaVue</span>
     </a>
 
     <!-- Sidebar -->
