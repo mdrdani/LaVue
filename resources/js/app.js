@@ -12,6 +12,7 @@ window.Vue = require('vue');
 import VueRouter from 'vue-router';
 import Dashboard from './components/Dashboard';
 import Profile from './components/Profile';
+import Users from './components/Users'
 
 Vue.use(VueRouter)
 
@@ -25,6 +26,11 @@ const routes = [
     name: 'profile',
     path: '/profile',
     component: Profile
+  },
+  {
+    name: 'users',
+    path: '/users',
+    component: Users
   },
 ]
 
