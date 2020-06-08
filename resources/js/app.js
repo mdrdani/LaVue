@@ -8,7 +8,9 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
+window.Form = Form;
 
+import { Form, HasError, AlertError } from 'vform';
 import VueRouter from 'vue-router';
 import Dashboard from './components/Dashboard';
 import Profile from './components/Profile';
@@ -50,6 +52,8 @@ const router = new VueRouter({
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component(HasError.name, HasError)
+Vue.component(AlertError.name, AlertError)
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
