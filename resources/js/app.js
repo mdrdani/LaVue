@@ -1,45 +1,53 @@
-
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
+require("./bootstrap");
 
-window.Vue = require('vue');
+window.Vue = require("vue");
 window.Form = Form;
 
-import { Form, HasError, AlertError } from 'vform';
-import VueRouter from 'vue-router';
-import Dashboard from './components/Dashboard';
-import Profile from './components/Profile';
-import Users from './components/Users'
+import moment from "moment";
+import { Form, HasError, AlertError } from "vform";
+import VueRouter from "vue-router";
+import Dashboard from "./components/Dashboard";
+import Profile from "./components/Profile";
+import Users from "./components/Users";
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes = [
-  {
-    name: 'dashboard',
-    path: '/dashboard',
-    component: Dashboard
-  },
-  {
-    name: 'profile',
-    path: '/profile',
-    component: Profile
-  },
-  {
-    name: 'users',
-    path: '/users',
-    component: Users
-  },
-]
+    {
+        name: "dashboard",
+        path: "/dashboard",
+        component: Dashboard
+    },
+    {
+        name: "profile",
+        path: "/profile",
+        component: Profile
+    },
+    {
+        name: "users",
+        path: "/users",
+        component: Users
+    }
+];
 
 const router = new VueRouter({
-    mode : 'history',
-    routes:routes // short for `routes: routes`
-  })
+    mode: "history",
+    routes: routes // short for `routes: routes`
+});
+
+Vue.filter("upText", function(text) {
+    return text.charAt(0).toUpperCase() + text.slice(1);
+});
+
+Vue.filter("myDate", function(created) {
+    return moment(created).format("ll");
+});
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -51,9 +59,12 @@ const router = new VueRouter({
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-Vue.component(HasError.name, HasError)
-Vue.component(AlertError.name, AlertError)
+Vue.component(
+    "example-component",
+    require("./components/ExampleComponent.vue").default
+);
+Vue.component(HasError.name, HasError);
+Vue.component(AlertError.name, AlertError);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -62,6 +73,6 @@ Vue.component(AlertError.name, AlertError)
  */
 
 const app = new Vue({
-    el: '#app',
+    el: "#app",
     router
 });
