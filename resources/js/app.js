@@ -48,6 +48,29 @@ Vue.filter("upText", function(text) {
 Vue.filter("myDate", function(created) {
     return moment(created).format("ll");
 });
+
+import VueProgressBar from "vue-progressbar";
+Vue.use(VueProgressBar, {
+    color: "rgb(143, 255, 199)",
+    failedColor: "red",
+    height: "3px"
+});
+
+import Swal from "sweetalert2";
+window.Swal = Swal;
+const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    onOpen: toast => {
+        toast.addEventListener("mouseenter", Swal.stopTimer);
+        toast.addEventListener("mouseleave", Swal.resumeTimer);
+    }
+});
+
+window.Toast = Toast;
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue

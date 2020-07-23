@@ -209,11 +209,21 @@ export default {
             axios.get("api/user").then(({ data }) => (this.users = data.data));
         },
         createUser() {
+            this.$Progress.start();
             this.form.post("api/user");
+
+            $("#addNew").modal("hide");
+            Toast.fire({
+                icon: "success",
+                title: "User Created in successfully"
+            });
+
+            this.$Progress.finish();
         }
     },
     created() {
         this.loadUsers();
+        setInterval(() => this.loadUsers(), 3000);
     }
 };
 </script>
