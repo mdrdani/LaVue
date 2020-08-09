@@ -65,8 +65,19 @@
             <div class="modal-dialog modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="addNewLabel">
+                        <h5
+                            v-show="!editmode"
+                            class="modal-title"
+                            id="addNewLabel"
+                        >
                             Add New User
+                        </h5>
+                        <h5
+                            v-show="editmode"
+                            class="modal-title"
+                            id="addNewLabel"
+                        >
+                            Update User's Info
                         </h5>
                         <button
                             type="button"
@@ -78,7 +89,9 @@
                         </button>
                     </div>
 
-                    <form @submit.prevent="createUser">
+                    <form
+                        @submit.prevent="editmode ? updateUser() : createUser()"
+                    >
                         <div class="modal-body">
                             <div class="form-group">
                                 <input
@@ -177,7 +190,18 @@
                             >
                                 Close
                             </button>
-                            <button type="submit" class="btn btn-primary">
+                            <button
+                                v-show="editmode"
+                                type="submit"
+                                class="btn btn-success"
+                            >
+                                Update
+                            </button>
+                            <button
+                                v-show="!editmode"
+                                type="submit"
+                                class="btn btn-primary"
+                            >
                                 Create
                             </button>
                         </div>
@@ -192,6 +216,7 @@
 export default {
     data() {
         return {
+            editmode: false,
             users: {},
             form: new Form({
                 name: "",
@@ -204,12 +229,17 @@ export default {
         };
     },
     methods: {
+        updateUser() {
+            console.log("editing data");
+        },
         editModal(user) {
+            this.editmode = true;
             this.form.reset();
             $("#addNew").modal("show");
             this.form.fill(user);
         },
         newModal() {
+            this.editmode = false;
             this.form.reset();
             $("#addNew").modal("show");
         },
