@@ -219,6 +219,7 @@ export default {
             editmode: false,
             users: {},
             form: new Form({
+                id: "",
                 name: "",
                 email: "",
                 password: "",
@@ -230,7 +231,24 @@ export default {
     },
     methods: {
         updateUser() {
-            console.log("editing data");
+            this.$Progress.start();
+            // console.log("editing data");
+            this.form
+                .put("api/user/" + this.form.id)
+                .then(() => {
+                    //successfully
+                    $("#addNew").modal("hide");
+                    Swal.fire(
+                        "Updated!",
+                        "Your file has been Update.",
+                        "success"
+                    );
+                    this.$Progress.finish();
+                    Fire.$emit("AfterCreate");
+                })
+                .catch(() => {
+                    this.$Progress.fail();
+                });
         },
         editModal(user) {
             this.editmode = true;
