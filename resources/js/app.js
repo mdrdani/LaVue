@@ -15,6 +15,11 @@ import VueRouter from "vue-router";
 import Dashboard from "./components/Dashboard";
 import Profile from "./components/Profile";
 import Users from "./components/Users";
+import Developer from "./components/Developer";
+
+// import passportclients from "./components/passport/Clients.vue";
+// import passportauthorizedclients from "./components/passport/AuthorizedClients.vue";
+// import passportpersonalaccesstokens from "./components/passport/PersonalAccessTokens.vue";
 
 Vue.use(VueRouter);
 
@@ -23,6 +28,11 @@ const routes = [
         name: "dashboard",
         path: "/dashboard",
         component: Dashboard
+    },
+    {
+        name: "developer",
+        path: "/developer",
+        component: Developer
     },
     {
         name: "profile",
@@ -88,6 +98,22 @@ Vue.component(
     "example-component",
     require("./components/ExampleComponent.vue").default
 );
+
+Vue.component(
+    "passport-clients",
+    require("./components/passport/Clients.vue").default
+);
+
+Vue.component(
+    "passport-authorized-clients",
+    require("./components/passport/AuthorizedClients.vue").default
+);
+
+Vue.component(
+    "passport-personal-access-tokens",
+    require("./components/passport/PersonalAccessTokens.vue").default
+);
+
 Vue.component(HasError.name, HasError);
 Vue.component(AlertError.name, AlertError);
 
