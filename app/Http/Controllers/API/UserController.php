@@ -54,6 +54,10 @@ class UserController extends Controller
             'password' => Hash::make($request['password']),
         ]);
     }
+    
+    public function profile(){
+        return auth('api')->user();
+    }
 
     /**
      * Display the specified resource.
