@@ -2025,13 +2025,10 @@ __webpack_require__.r(__webpack_exports__);
     updateProfile: function updateProfile(e) {
       var _this = this;
 
-      // console.log("Upload Success");
-      var file = e.target.files[0]; // console.log(file);
-
+      var file = e.target.files[0];
       var reader = new FileReader();
 
       reader.onloadend = function (file) {
-        // console.log("RESULT", reader.result);
         _this.form.photo = reader.result;
       };
 
