@@ -150,6 +150,7 @@
                                                 <div class="custom-file">
                                                     <input
                                                         type="file"
+                                                        @change="updateProfile"
                                                         class="custom-file-input"
                                                         id="exampleInputFile"
                                                     />
@@ -217,10 +218,20 @@ export default {
             })
         };
     },
-    mounted() {
-        console.log("component mounted.");
+    mounted() {},
+    methods: {
+        updateProfile(e) {
+            // console.log("Upload Success");
+            let file = e.target.files[0];
+            // console.log(file);
+            let reader = new FileReader();
+            reader.onloadend = file => {
+                // console.log("RESULT", reader.result);
+                this.form.photo = reader.result;
+            };
+            reader.readAsDataURL(file);
+        }
     },
-
     created() {
         axios.get("api/profile").then(({ data }) => this.form.fill(data));
     }
