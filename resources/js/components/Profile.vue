@@ -183,10 +183,11 @@
                                     <div class="form-group row">
                                         <div class="offset-sm-2 col-sm-10">
                                             <button
+                                                @click.prevent="updateInfo"
                                                 type="submit"
                                                 class="btn btn-danger"
                                             >
-                                                Submit
+                                                Update
                                             </button>
                                         </div>
                                     </div>
@@ -227,6 +228,12 @@ export default {
                 this.form.photo = reader.result;
             };
             reader.readAsDataURL(file);
+        },
+        updateInfo() {
+            this.form
+                .put("api/profile")
+                .then(() => {})
+                .catch(() => {});
         }
     },
     created() {
