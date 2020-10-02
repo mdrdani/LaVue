@@ -132,6 +132,7 @@
                                         >
                                         <div class="col-sm-10">
                                             <textarea
+                                                v-model="form.bio"
                                                 class="form-control"
                                                 id="inputExperience"
                                                 placeholder="Experience"
@@ -173,6 +174,7 @@
                                         <div class="col-sm-10">
                                             <input
                                                 type="password"
+                                                v-model="form.password"
                                                 class="form-control"
                                                 id="inputSkills"
                                                 placeholder="Password"
@@ -185,7 +187,7 @@
                                             <button
                                                 @click.prevent="updateInfo"
                                                 type="submit"
-                                                class="btn btn-danger"
+                                                class="btn btn-success"
                                             >
                                                 Update
                                             </button>
