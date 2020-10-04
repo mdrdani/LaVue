@@ -42,7 +42,7 @@ class UserController extends Controller
         $this->validate($request, [
             'name' => 'required|string|max:191',
             'email' => 'required|string|email|max:191|unique:users',
-            'password' => 'required|string|min:4',
+            'password' => 'required|string|min:6',
         ]);
 
         return User::create([
@@ -76,6 +76,10 @@ class UserController extends Controller
             \Image::make($request->photo)->save(public_path('img/profile/').$name);
 
             $request->merge(['photo' => $name]);
+        }
+
+        if(!empty($request->password)){
+            $request->merge(['password'=> Hash::make($request['password'])]);
         }
 
         $user->update($request->all());

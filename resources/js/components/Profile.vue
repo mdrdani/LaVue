@@ -105,7 +105,16 @@
                                                 class="form-control"
                                                 id="inputName"
                                                 placeholder="Name"
+                                                :class="{
+                                                    'is-invalid': form.errors.has(
+                                                        'name'
+                                                    )
+                                                }"
                                             />
+                                            <has-error
+                                                :form="form"
+                                                field="name"
+                                            ></has-error>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -121,7 +130,16 @@
                                                 class="form-control"
                                                 id="inputEmail"
                                                 placeholder="Email"
+                                                :class="{
+                                                    'is-invalid': form.errors.has(
+                                                        'email'
+                                                    )
+                                                }"
                                             />
+                                            <has-error
+                                                :form="form"
+                                                field="email"
+                                            ></has-error>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -178,7 +196,16 @@
                                                 class="form-control"
                                                 id="inputSkills"
                                                 placeholder="Password"
+                                                :class="{
+                                                    'is-invalid': form.errors.has(
+                                                        'password'
+                                                    )
+                                                }"
                                             />
+                                            <has-error
+                                                :form="form"
+                                                field="password"
+                                            ></has-error>
                                         </div>
                                     </div>
 
@@ -246,6 +273,11 @@ export default {
                 .put("api/profile")
                 .then(() => {
                     this.$Progress.finish();
+                    Swal.fire(
+                        "Good job!",
+                        "Profile Has been Update",
+                        "success"
+                    );
                 })
                 .catch(() => {
                     this.$Progress.fail();
