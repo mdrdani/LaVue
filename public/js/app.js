@@ -2057,7 +2057,8 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {},
   methods: {
     getProfilePhoto: function getProfilePhoto() {
-      return "img/profile/" + this.form.photo;
+      var photo = this.form.photo.length > 200 ? this.form.photo : "img/profile/" + this.form.photo;
+      return photo;
     },
     updateProfile: function updateProfile(e) {
       var _this = this;
@@ -65106,9 +65107,9 @@ var render = function() {
         _c("div", { staticClass: "card card-widget widget-user" }, [
           _vm._m(0),
           _vm._v(" "),
-          _c("div", { staticClass: "widget-user-image" }, [
+          _c("div", { staticClass: "widget-user-image mx-auto d-block" }, [
             _c("img", {
-              staticClass: "img-circle",
+              staticClass: "img-circle w-50",
               attrs: { src: _vm.getProfilePhoto(), alt: "User Avatar" }
             })
           ]),

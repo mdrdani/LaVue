@@ -22,9 +22,9 @@
                             Web Designer
                         </h5>
                     </div>
-                    <div class="widget-user-image">
+                    <div class="widget-user-image mx-auto d-block">
                         <img
-                            class="img-circle"
+                            class="img-circle w-50"
                             :src="getProfilePhoto()"
                             alt="User Avatar"
                         />
@@ -255,7 +255,11 @@ export default {
     mounted() {},
     methods: {
         getProfilePhoto() {
-            return "img/profile/" + this.form.photo;
+            let photo =
+                this.form.photo.length > 200
+                    ? this.form.photo
+                    : "img/profile/" + this.form.photo;
+            return photo;
         },
         updateProfile(e) {
             let file = e.target.files[0];
