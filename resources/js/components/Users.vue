@@ -283,7 +283,11 @@ export default {
                             Fire.$emit("AfterCreate");
                         })
                         .catch(() => {
-                            Swal.fire("Failed!!", "There Was something wrong");
+                            Swal.fire({
+                                icon: "error",
+                                title: "Oops...",
+                                text: "You Are Can't Delete"
+                            });
                         });
                 }
             });
