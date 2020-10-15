@@ -66,6 +66,9 @@ Vue.use(VueProgressBar, {
     height: "3px"
 });
 
+import Gate from "./Gate";
+Vue.prototype.$gate = new Gate(window.user);
+
 import Swal from "sweetalert2";
 window.Swal = Swal;
 const Toast = Swal.mixin({
@@ -113,6 +116,8 @@ Vue.component(
     "passport-personal-access-tokens",
     require("./components/passport/PersonalAccessTokens.vue").default
 );
+
+Vue.component("not-found", require("./components/NotFound.vue").default);
 
 Vue.component(HasError.name, HasError);
 Vue.component(AlertError.name, AlertError);
