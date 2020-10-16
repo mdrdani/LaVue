@@ -16,6 +16,7 @@ import Dashboard from "./components/Dashboard";
 import Profile from "./components/Profile";
 import Users from "./components/Users";
 import Developer from "./components/Developer";
+import NotFound from "./components/NotFound";
 
 // import passportclients from "./components/passport/Clients.vue";
 // import passportauthorizedclients from "./components/passport/AuthorizedClients.vue";
@@ -43,6 +44,11 @@ const routes = [
         name: "users",
         path: "/users",
         component: Users
+    },
+    {
+        name: "*",
+        path: "*",
+        component: NotFound
     }
 ];
 
@@ -121,6 +127,7 @@ Vue.component("not-found", require("./components/NotFound.vue").default);
 
 Vue.component(HasError.name, HasError);
 Vue.component(AlertError.name, AlertError);
+Vue.component("pagination", require("laravel-vue-pagination"));
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

@@ -16,10 +16,10 @@
                         style="background-image:url('./img/user-cover.jpg'); height:300px"
                     >
                         <h3 class="widget-user-username text-right">
-                            Elizabeth Pierce
+                            {{ this.form.name }}
                         </h3>
                         <h5 class="widget-user-desc text-right">
-                            Web Designer
+                            {{ this.form.type }}
                         </h5>
                     </div>
                     <div class="widget-user-image mx-auto d-block">
@@ -28,39 +28,6 @@
                             :src="getProfilePhoto()"
                             alt="User Avatar"
                         />
-                    </div>
-                    <div class="card-footer">
-                        <div class="row">
-                            <div class="col-sm-4 border-right">
-                                <div class="description-block">
-                                    <h5 class="description-header">3,200</h5>
-                                    <span class="description-text">SALES</span>
-                                </div>
-                                <!-- /.description-block -->
-                            </div>
-                            <!-- /.col -->
-                            <div class="col-sm-4 border-right">
-                                <div class="description-block">
-                                    <h5 class="description-header">13,000</h5>
-                                    <span class="description-text"
-                                        >FOLLOWERS</span
-                                    >
-                                </div>
-                                <!-- /.description-block -->
-                            </div>
-                            <!-- /.col -->
-                            <div class="col-sm-4">
-                                <div class="description-block">
-                                    <h5 class="description-header">35</h5>
-                                    <span class="description-text"
-                                        >PRODUCTS</span
-                                    >
-                                </div>
-                                <!-- /.description-block -->
-                            </div>
-                            <!-- /.col -->
-                        </div>
-                        <!-- /.row -->
                     </div>
                 </div>
             </div>

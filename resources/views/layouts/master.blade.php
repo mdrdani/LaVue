@@ -10,7 +10,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>LaVue</title>
+  <title>LaVue | Laravel + Vue Admin Panel</title>
 
     <link rel="stylesheet" href="/css/app.css">
     <!-- CSRF Token -->
